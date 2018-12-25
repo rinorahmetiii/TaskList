@@ -20,16 +20,17 @@ function loadEventListeners(){
 function addTask(e){
     if(taskInput.value === ''){
         alert('You should add a task');
+        return;
     }
     //Create li elements
     const li = document.createElement('li');
-    //Add a class
+    //Add class
     li.className = 'collection-items';
     //Create the text node and appent to li
     li.appendChild(document.createTextNode(taskInput.value));
     //Create new link element(for delete icons of tasks)
     const link = document.createElement('a');
-    //Add a class 
+    //Add class 
     link.className = 'delete-item secondary-content';//(secondary-contetn)We need delete icons to the right of list items
     //Add icon Html
     link.innerHTML = '<i class="fa fa-remove"></i>';
