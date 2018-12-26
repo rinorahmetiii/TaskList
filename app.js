@@ -25,7 +25,7 @@ function addTask(e){
     //Create li elements
     const li = document.createElement('li');
     //Add class
-    li.className = 'collection-items';
+    li.className = 'collection-item';
     //Create the text node and appent to li
     li.appendChild(document.createTextNode(taskInput.value));
     //Create new link element(for delete icons of tasks)
