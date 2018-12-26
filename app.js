@@ -52,7 +52,7 @@ function addTask(e){
 
 //Remove Task
 function removeTask(e){
-    
-    console.log(e.target);
-
+    if(e.target.parentElement.classList.contains('delete-item')){
+        console.log(e.target);
+    }
 }
