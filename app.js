@@ -20,6 +20,7 @@ function loadEventListeners(){
 function addTask(e){
     if(taskInput.value === ''){
         alert('You should add a task');
+        e.preventDefault();
         return;
     }
     //Create li elements
