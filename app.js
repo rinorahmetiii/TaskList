@@ -11,8 +11,10 @@ const filter = document.querySelector('#filter');
 loadEventListeners();
 
 function loadEventListeners(){
-    //Add task event
+    //Add task
     form.addEventListener('submit' , addTask);
+    //Remove task
+    taskList.addEventListener('click' , removeTask);
 }
 
 //addTask Function
@@ -48,3 +50,9 @@ function addTask(e){
 }
 
 
+//Remove Task
+function removeTask(e){
+    
+    console.log(e.target);
+
+}
