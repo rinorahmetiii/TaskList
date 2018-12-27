@@ -84,7 +84,23 @@ function clearTasks(){
 //Filter Tasks
 
 function filterTasks(e) {
-    const text = e.target.value;
+    const text = e.target.value.toLowerCase();
+
+    let el = document.querySelectorAll('.collection-item');
+    if(text.trim().length != 0){
+        for(let li of el){
+            let liTxt = li.firstChild.textContent.toLowerCase();
+            if(liTxt.indexOf(text) != -1) {
+                li.style.display = 'block';
+            }else {
+                li.style.display = 'none';
+            }
+        }
+    }else {
+        for(let li of el){
+            li.style.display = 'block';
+        }
+    }
 
     console.log(text);
 }
