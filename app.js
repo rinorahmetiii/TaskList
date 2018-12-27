@@ -62,13 +62,23 @@ function removeTask(e){
 }
 
 //Clear Tasks
-function clearTasks(e){
-    if (e.target.classList.contains('clear-tasks')) {
-        let collection = document.getElementById('collection');
-        collection.innerHTML = '';
-        
-        // while (collection.firstChild) {
-        //     collection.removeChild(collection.firstChild);
-        // }
-    }
+function clearTasks(){
+    taskList.innerHTML = '';
 }
+
+
+
+
+
+
+// //Clear Tasks
+// function clearTasks(e){
+//     if (e.target.classList.contains('clear-tasks')) {
+//         let collection = document.getElementById('collection');
+//         collection.innerHTML = '';
+        
+//         // while (collection.firstChild) {
+//         //     collection.removeChild(collection.firstChild);
+//         // }
+//     }
+// }
