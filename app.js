@@ -15,6 +15,8 @@ function loadEventListeners(){
     form.addEventListener('submit' , addTask);
     //Remove task
     taskList.addEventListener('click' , removeTask);
+    //Clear Tasks
+    clearBtn.addEventListener('click' , clearTasks);
 }
 
 //addTask Function
@@ -53,6 +55,20 @@ function addTask(e){
 //Remove Task
 function removeTask(e){
     if(e.target.parentElement.classList.contains('delete-item')){
-        e.target.parentElement.parentElement.remove();
+        if(confirm('Are you sure?')){
+            e.target.parentElement.parentElement.remove();
+        }
+    }
+}
+
+//Clear Tasks
+function clearTasks(e){
+    if (e.target.classList.contains('clear-tasks')) {
+        let collection = document.getElementById('collection');
+        collection.innerHTML = '';
+        
+        // while (collection.firstChild) {
+        //     collection.removeChild(collection.firstChild);
+        // }
     }
 }
