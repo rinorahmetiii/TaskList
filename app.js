@@ -83,24 +83,37 @@ function clearTasks(){
 
 //Filter Tasks
 
+// function filterTasks(e) {
+//     const text = e.target.value.toLowerCase();
+
+//     let el = document.querySelectorAll('.collection-item');
+//     if (text.trim().length != 0) {
+//         for ( let li of el ){
+//             let liTxt = li.firstChild.textContent.toLowerCase();
+//             if (liTxt.indexOf(text) != -1) {
+//                 li.style.display = 'block';
+//             } else {
+//                 li.style.display = 'none';
+//             }
+//         }
+//     } else {
+//         for (let li of el){
+//             li.style.display = 'block';
+//         }
+//     }
+// }
+
 function filterTasks(e) {
     const text = e.target.value.toLowerCase();
 
-    let el = document.querySelectorAll('.collection-item');
-    if(text.trim().length != 0){
-        for(let li of el){
-            let liTxt = li.firstChild.textContent.toLowerCase();
-            if(liTxt.indexOf(text) != -1) {
-                li.style.display = 'block';
-            }else {
-                li.style.display = 'none';
-            }
+    document.querySelectorAll('.collection-item').forEach
+    (function(task) {
+        const item = task.firstChild.textContent;
+        if (item.toLowerCase().indexOf(text) != -1) {
+            task.style.display = 'block';
+        } else {
+            task.style.display = 'none';
         }
-    }else {
-        for(let li of el){
-            li.style.display = 'block';
-        }
-    }
-
-    console.log(text);
+    });
 }
+
