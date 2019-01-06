@@ -131,11 +131,12 @@ function removeTaskFromLocalStorage(taskItem) {
 }
 
 //Clear Tasks
-function clearTasks(){
-    taskList.innerHTML = '';
-
-    //Clear tasks from LS
-    clearTasksFromLocalStorage();
+function clearTasks() {
+    if (confirm('A je i sigurt?') ) {
+        taskList.innerHTML = '';
+        //Clear tasks from LS
+        clearTasksFromLocalStorage();
+    }
 }
 // //Clear Tasks
 // function clearTasks(e){
