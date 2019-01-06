@@ -11,6 +11,8 @@ const filter = document.querySelector('#filter');
 loadEventListeners();
 
 function loadEventListeners(){
+    //DOM Load Event
+    document.addEventListener('DOMContentLoaded' , getTasks);
     //Add task
     form.addEventListener('submit' , addTask);
     //Remove task
@@ -21,8 +23,36 @@ function loadEventListeners(){
     filter.addEventListener('keyup' , filterTasks);
 }
 
-//addTask Function
+//Get Tasks from LocalStorage
+function getTasks() {
+    let tasks;
+    if(localStorage.getItem('tasks') === null) {
+        tasks = [];
+    } else {
+        tasks = JSON.parse(localStorage.getItem('tasks'));
+    }
 
+    tasks.forEach(function(task) {
+        //Create li elements
+        const li = document.createElement('li');
+        //Add class
+        li.className = 'collection-item';
+        //Create the text node and appent to li
+        li.appendChild(document.createTextNode(task));
+        //Create new link element(for delete icons of tasks)
+        const link = document.createElement('a');
+        //Add class 
+        link.className = 'delete-item secondary-content';//(secondary-contetn)We need delete icons to the right of list items
+        //Add icon Html
+        link.innerHTML = '<i class="fa fa-remove"></i>';
+        //Append the link to the li
+        li.appendChild(link);
+        //Append the li to ul
+        taskList.appendChild(li);
+    });
+}
+
+//addTask Function
 function addTask(e){
     if(taskInput.value === ''){
         alert('You should add a task');
